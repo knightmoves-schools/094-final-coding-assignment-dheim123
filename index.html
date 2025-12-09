@@ -6,24 +6,108 @@
     <style>
         body {
             background-color: lightblue;
+            padding: 0 20px; 
+            font-family: sans-serif;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            background-color: #488ad1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
         }
 
         .TextStyle {
             font-size: 50px;
             font-weight: bold;
             font-family: fantasy;
+            color: black;
+            margin: 0;
+        }
+
+        #total-container {
+            font-size: 48px;
+            font-weight: bold;
+            color: black;
+            float: right;
             border: 20px solid;
             border-color: lightcyan;
             background-color: lightcyan;
             width: 250px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .item-row {
+            display: flex;
+            align-items: center; /* Vertically center items in the row */
+            margin-bottom: 25px; /* Add space between product rows */
+            gap: 20px; /* Add space between the image, text, and button */
+        }
+
+        .item-image {
+            width: 150px; /* Set a consistent size for images */
+            height: auto;
+            border-radius: 8px;
+            border: 5px solid lightcyan; /* Match the border style */
         }
     </style>    
 </head>
 
 <body>
-    <p class="TextStyle">Chair - $20</p>
-    <p class="TextStyle">Table - $15</p>
-    <p class="TextStyle">Desk - $30</p>
+    <div id="total-container">
+        🛒 Total: <span id="total-number">0</span>
+    </div>
+
+    <!-- Chair Row -->
+    <div class="item-row">
+        <img src="i.imgur.com" alt="A modern chair" class="item-image">
+        <p class="TextStyle">Chair - $20</p>
+        <button onclick="addTwenty()">
+            Add Chair
+        </button>
+    </div>
+
+    <!-- Table Row -->
+    <div class="item-row">
+        <img src="i.imgur.com" alt="A wooden table" class="item-image">
+        <p class="TextStyle">Table - $15</p>
+        <button onclick="addFifteen()">
+            Add Table
+        </button>
+    </div>
+
+    <!-- Desk Row -->
+    <div class="item-row">
+        <img src="i.imgur.com" alt="An office desk" class="item-image">
+        <p class="TextStyle">Desk - $30</p>
+        <button onclick="addThirty()">
+            Add Desk
+        </button>
+    </div>
+
+    <script>
+        let total = 0;
+
+        function addTwenty() {
+            total += 20;
+            document.getElementById('total-number').textContent = total;
+        }
+
+        function addFifteen() {
+            total += 15;
+            document.getElementById('total-number').textContent = total;
+        }
+
+        function addThirty() {
+            total += 30;
+            document.getElementById('total-number').textContent = total;
+        }
+    </script>
+
 </body>
 
 </html>
